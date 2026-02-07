@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>🌹 For You</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.rose {
+  font-size: 80px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+h1 {
+  font-size: 2.3rem;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+/* falling hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: fall 6s linear infinite;
+}
+
+@keyframes fall {
+  0% { top: -10%; opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="rose">🌹</div>
+
+<h1>Happy Rose Day</h1>
+
+<p>
+This rose is for you — just to remind you how special you are 💗
+</p>
+
+<p style="font-size:1rem; margin-top:10px;">
+Allah knows what’s best for the heart 🤍
+</p>
+
+<p style="margin-top:20px; font-style:italic;">
+— From Saad 💫
+</p>
+
+<!-- background music -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// tap to play music
+document.body.addEventListener("click", function () {
+  document.getElementById("bgMusic").play();
+}, { once: true });
+
+// hearts generator
+for(let i=0;i<20;i++){
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.animationDelay = Math.random()*5 + "s";
+  document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
